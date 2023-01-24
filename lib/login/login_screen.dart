@@ -214,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   // User signup text and signup button
                   Container(
-                    padding: const EdgeInsets.only(top: 210, bottom: 50),
+                    padding: const EdgeInsets.only(top: 370, bottom: 50),
                     alignment: Alignment.center,
                     child: Wrap(
                       children: [

@@ -239,7 +239,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   // Login text and button
                   Padding(
-                    padding: const EdgeInsets.only(top: 116, bottom: 50),
+                    padding: const EdgeInsets.only(top: 200, bottom: 50),
                     child: Wrap(
                       children: [
                         const Text(
