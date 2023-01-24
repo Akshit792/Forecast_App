@@ -32,7 +32,7 @@ class ForecastDetailsBloc
         var errorMessage = jsonDecode(e.responseBody);
         emit(ErroForecastDetailsState(errorMessage: errorMessage['msg']));
       } catch (e, s) {
-        Logger().e('$e Fetch Forecast Details Event');
+        Logger().e('$e Fetch Forecast Details Event $s');
       }
     });
   }

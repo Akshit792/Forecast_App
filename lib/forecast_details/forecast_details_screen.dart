@@ -88,8 +88,9 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            // back button
             Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: InkWell(
                 onTap: () {
                   BlocProvider.of<NavigatorBloc>(context)
@@ -113,8 +114,9 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                 ),
               ),
             ),
+            // current date
             Padding(
-              padding: const EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -132,6 +134,7 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                 ],
               ),
             ),
+            // small forecasts
             Container(
               height: 150,
               margin: const EdgeInsets.symmetric(vertical: 15),
@@ -197,8 +200,9 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                     );
                   }),
             ),
+            // Other forecast title bar
             Padding(
-              padding: const EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: Row(
                 children: const [
                   SizedBox(
@@ -224,14 +228,14 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                 ],
               ),
             ),
-            _buildNextForecastTile(),
+            _buildNextForecasts(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildNextForecastTile() {
+  Widget _buildNextForecasts() {
     List<dynamic> dataList = [];
     for (var data in otherForecastList.values.toList()) {
       if (data is Map) {
@@ -246,12 +250,13 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
           String date =
               '${DateFormat('MMM').format(DateTime(int.parse(liveWeatherData!.date!.split('/')[2]), int.parse(liveWeatherData!.date!.split('/')[1]), int.parse(liveWeatherData!.date!.split('/')[0]))).toString()}, ${int.parse(liveWeatherData!.date!.split('/')[0]) + index + 1}';
           return Padding(
-            padding: const EdgeInsets.only(top: 18, bottom: 18),
+            padding: const EdgeInsets.symmetric(vertical: 18),
             child: Row(
               children: [
                 const SizedBox(
                   width: 20,
                 ),
+                // date of the forecast
                 Text(
                   date,
                   style: const TextStyle(
@@ -259,6 +264,7 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                       fontWeight: FontWeight.w600,
                       fontSize: 16),
                 ),
+                // temperature condition image
                 Expanded(
                     child: Container(
                   height: 50,
@@ -267,6 +273,7 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                       image: AssetImage(Constants.weatherImagesMap[
                           dataList[index]['condition'].toLowerCase()])),
                 )),
+                // temperature value
                 Text(
                   '${dataList[index]['temperature']}°',
                   style: const TextStyle(
