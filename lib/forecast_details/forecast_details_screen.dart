@@ -90,7 +90,7 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
           children: [
             // back button
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.only(top: 20, bottom: 0),
               child: InkWell(
                 onTap: () {
                   BlocProvider.of<NavigatorBloc>(context)
@@ -98,6 +98,9 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
                 },
                 child: Row(
                   children: const [
+                    SizedBox(
+                      width: 25,
+                    ),
                     Icon(
                       Icons.arrow_back_ios,
                       size: 18,
@@ -116,7 +119,7 @@ class _ForecastDetailsScreenState extends State<ForecastDetailsScreen> {
             ),
             // current date
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.only(top: 10, bottom: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
